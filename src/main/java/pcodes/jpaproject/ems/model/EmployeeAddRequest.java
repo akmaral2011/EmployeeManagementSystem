@@ -1,16 +1,19 @@
 package pcodes.jpaproject.ems.model;
 
+import pcodes.jpaproject.ems.entity.Department;
+
 public class EmployeeAddRequest {
     private String name;
-    private String department;
+    private  Long departmentId;
     private Double salary;
+
 
     public EmployeeAddRequest() {
     }
 
-    public EmployeeAddRequest(String name, String department, Double salary) {
+    public EmployeeAddRequest(String name, Long departmentId, Double salary) {
         this.name = name;
-        this.department = department;
+        this.departmentId = departmentId;
         this.salary = salary;
     }
 
@@ -22,12 +25,12 @@ public class EmployeeAddRequest {
         this.name = name;
     }
 
-    public String getDepartment() {
-        return department;
+    public Long getDepartmentId() {
+        return departmentId;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
+    public void setDepartmentId(Long departmentId) {
+        this.departmentId = departmentId;
     }
 
     public Double getSalary() {

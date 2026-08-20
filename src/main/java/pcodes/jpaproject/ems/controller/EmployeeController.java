@@ -3,6 +3,7 @@ package pcodes.jpaproject.ems.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pcodes.jpaproject.ems.entity.Department;
 import pcodes.jpaproject.ems.entity.Employee;
 import pcodes.jpaproject.ems.model.EmployeeAddRequest;
 import pcodes.jpaproject.ems.model.EmployeeAddResponse;
@@ -20,7 +21,7 @@ public class EmployeeController {
 
     @GetMapping("/check")
     public String check(){
-        return "Server is runnibg...";
+        return "Server is running...";
     }
 
     @PostMapping("/add")
@@ -38,9 +39,9 @@ public class EmployeeController {
         return service.getEmployee(id);
     }
 
-    @GetMapping("/dept/{department}")
-    public List<Employee> getEmployeesByDepartment(@PathVariable String department){
-        return service.getAllEmployeesOfDepartment(department);
+    @GetMapping("/dept/{departmentId}")
+    public List<Employee> getEmployeesByDepartment(@PathVariable  Long departmentId){
+        return service.getAllEmployeesOfDepartment(departmentId);
     }
 
     @PutMapping("/update/{id}")

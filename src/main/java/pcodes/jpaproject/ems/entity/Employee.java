@@ -1,9 +1,6 @@
 package pcodes.jpaproject.ems.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Employee {
@@ -13,13 +10,17 @@ public class Employee {
     private Long id;
 
     private String name;
-    private String department;
+
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
     private Double salary;
+
 
     public Employee() {
     }
 
-    public Employee(String department, Double salary, String name, Long id) {
+    public Employee(Department department, Double salary, String name, Long id) {
         this.department = department;
         this.salary = salary;
         this.name = name;
@@ -42,11 +43,11 @@ public class Employee {
         this.salary = salary;
     }
 
-    public String getDepartment() {
+    public Department getDepartment() {
         return department;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(Department department) {
         this.department = department;
     }
 
